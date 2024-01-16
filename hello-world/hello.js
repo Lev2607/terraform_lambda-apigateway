@@ -1,3 +1,5 @@
+hello.js
+
 /**
  * Copyright (c) HashiCorp, Inc.
  * SPDX-License-Identifier: MPL-2.0
@@ -8,6 +10,10 @@
 module.exports.handler = async (event) => {
   console.log('Event: ', event);
   let responseMessage = 'Hello, World!';
+
+  if (event.queryStringParameters && event.queryStringParameters['Name']) {
+    responseMessage = 'Hello, ' + event.queryStringParameters['Name'] + '!';
+  }
 
   return {
     statusCode: 200,

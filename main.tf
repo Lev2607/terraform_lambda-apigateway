@@ -174,6 +174,7 @@ resource "aws_apigatewayv2_route" "remove" {
   route_key = "DELETE /remove"
   target    = "integrations/${aws_apigatewayv2_integration.remove.id}"
 }
+
 resource "aws_apigatewayv2_integration" "hello_world" {
   api_id = aws_apigatewayv2_api.lambda.id
 
@@ -182,12 +183,12 @@ resource "aws_apigatewayv2_integration" "hello_world" {
   integration_method = "POST"
 }
 
-resource "aws_apigatewayv2_route" "hello_world" {
-  api_id = aws_apigatewayv2_api.lambda.id
+# resource "aws_apigatewayv2_route" "hello_world" {
+#  api_id = aws_apigatewayv2_api.lambda.id
 
-  route_key = "GET /hello"
-  target    = "integrations/${aws_apigatewayv2_integration.hello_world.id}"
-}
+#  route_key = "GET /hello"
+#  target    = "integrations/${aws_apigatewayv2_integration.hello_world.id}"
+#}
 
 resource "aws_cloudwatch_log_group" "api_gw" {
   name = "/aws/api_gw/${aws_apigatewayv2_api.lambda.name}"

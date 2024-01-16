@@ -1,5 +1,3 @@
-hello.js
-
 /**
  * Copyright (c) HashiCorp, Inc.
  * SPDX-License-Identifier: MPL-2.0
@@ -24,7 +22,7 @@ module.exports.handler = async (event) => {
       message: responseMessage,
     }),
   }
-} */
+} **/
 
 exports.handler = async (event) => {
   console.log('Event: ', event);
